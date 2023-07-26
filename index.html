@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Element demo for FF</title>
+	<style>
+		body {
+			max-width: 300px;
+		}
+		.square {
+        width: 200px;
+				height: 200px;
+				background: red;
+				color: blue;
+		}
+
+		.background {
+				background: white -moz-element(#square) no-repeat scroll center center / contain;
+				margin-top: 24px;
+				width: 200px;
+				height: 200px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				color: green;
+				text-align: center;
+		}
+	</style>
+	<script type="module">
+		const increment = document.querySelector("#increment");
+    const counter = document.querySelector("#counter");
+
+    increment.addEventListener("click", () => {
+      const newValue = Number(counter.innerText) + 1;
+      counter.innerText = newValue;
+		})
+	</script>
+</head>
+<body>
+<h1>Element demo for FF</h1>
+<button id="increment">Increment</button>
+<br>
+<div class="square" id="square">Some text <span id="counter">0</span></div>
+<div style="margin-top: 24px">
+	<h2>Background</h2>
+	<p>Background of div below uses div with "Some text" as a backgroud.
+	Because of that, if div content changes, background of div below changes too, it's so crazy...
+	<br>
+  <a href="https://github.com/radek-anuszewski/element-as-background" target="_blank" rel="noreferrer noopener">Check the source code in Github</a>
+	</p>
+	<div class="background">Check what happens with background! Image changes dynamically!!!</div>
+</div>
+</body>
+</html>
